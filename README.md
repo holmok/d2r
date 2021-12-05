@@ -11,7 +11,7 @@ This is currently undergoing dev and is VERY simple as of now.
 ## TODO:
 
 * Add a state store plugin implementation to replace yaml file (initial support for postgres and sqlite)
-* Add end point for URL shortening (post a url and info SEE: DetourInfo interface) and get a code
+* Add end point for URL shortening (post a url and info SEE: [DetourInfo interface](https://github.com/holmok/d2r/blob/f2fd736882029299eb050bcd2b2534442de2ab78/src/server/d2r.ts#L7)) and get a code
 * Add simple auth middleware using JWT
 * Add add admin endpoint for managing
 * Support partial url part forwarding (ex:  `http://oldhost.com/original/this/is/a/path` ==> `http://newhost.com/new/[match]/new-path` ==> `http://newhost.com/new/this/is/a/new-path`)
