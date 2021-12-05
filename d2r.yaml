@@ -1,0 +1,14 @@
+---
+fallback:
+  stripQueryString: true
+  redirect: http://www.hotbot.com/
+targets:
+  - regex: happy
+    flags: ig
+    stripQueryString: true
+    redirect: http://www.google.com/
+    permanent: false
+  - regex: sad
+    flags: g
+    stripQueryString: false
+    redirect: http://www.yahoo.com/
