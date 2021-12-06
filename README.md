@@ -1,4 +1,4 @@
-# d3r
+# d2r
 ## An extensible service for redirecting urls and url shortening
 
 This is currently undergoing dev and is VERY simple as of now.

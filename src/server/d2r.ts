@@ -48,17 +48,15 @@ export default function d2r (): Middleware<ServerContextState, ServerContext> {
     // TEST URL AGAINST DETOURS
     const target = detours.targets.find((t) => {
       return t.regex.test(url)
-    })
+    }) ?? detours.fallback
 
     // FALLBACK OR TARGET
-    const redirect = target != null ? target.redirect : detours.fallback.redirect
-    const stripQueryString = target != null ? target.stripQueryString : detours.fallback.stripQueryString
-    const status = target != null ? target.status : detours.fallback.status
+    const { redirect, status, stripQueryString } = target
     const final = `${redirect}${stripQueryString ? '' : `?${qs != null ? qs.toString() : ''}`}`
     ctx.log.info({ redirect: { target: final, request: url, status: status ?? 301 } }, `Redirecting ${url} to ${final}`)
 
     // REDIRECT
-    ctx.status = status ?? 301
+    ctx.status = status ?? 301 // default to permanent redirect
     ctx.redirect(final)
   }
 }
